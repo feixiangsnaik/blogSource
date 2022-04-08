@@ -64,6 +64,150 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-hexo操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/12/16/hexo%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time datetime="2021-12-16T08:22:03.000Z" itemprop="datePublished">2021-12-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/16/hexo%E6%93%8D%E4%BD%9C/">hexo操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="发布命令"><a href="#发布命令" class="headerlink" title="发布命令"></a>发布命令</h2><pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
+</code></pre>
+<h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><pre><code>hexo new articleTest
+</code></pre>
+<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><p>//第一条   安装hexo的基础框架，如果很慢的话，可以考虑挂下梯子，或者换个源<br>     npm install -g hexo</p>
+<pre><code> //第二条   初始化hexo框架 这个可能会比较慢
+ hexo init
+ 
+ //第三条 安装所需要的组件
+ npm install
+ 
+ //第四条 编译生成静态页面
+ hexo g
+ 
+ //第五条 启动本地服务
+ hexo s
+</code></pre>
+<p>合并：1.     npm install -g hexo &amp;&amp; hexo init &amp;&amp; npm install &amp;&amp;npm i hexo-deployer-git &amp;&amp; hexo g &amp;&amp; hexo s<br>git 步骤：2.git config –global user.name ‘feixiangsnaik’ &amp;&amp;git config –global user.email ‘<a href="mailto:&#x66;&#x65;&#x69;&#120;&#x69;&#97;&#110;&#103;&#x73;&#x6e;&#97;&#x69;&#x6c;&#64;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;">&#x66;&#x65;&#x69;&#120;&#x69;&#97;&#110;&#103;&#x73;&#x6e;&#97;&#x69;&#x6c;&#64;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;</a>‘&amp;&amp;ssh-keygen -t rsa -C ‘<a href="mailto:&#102;&#x65;&#x69;&#120;&#x69;&#x61;&#x6e;&#x67;&#115;&#110;&#97;&#x69;&#108;&#64;&#103;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;">&#102;&#x65;&#x69;&#120;&#x69;&#x61;&#x6e;&#x67;&#115;&#110;&#97;&#x69;&#108;&#64;&#103;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;</a>‘    然后回车到底，把pub的内容拷贝到github ssh里面。<br>3.deploy:<br>  type: git<br>  repository: <a target="_blank" rel="noopener" href="https://github.com/feixiangsnaik/feixiangsnaik.github.io">https://github.com/feixiangsnaik/feixiangsnaik.github.io</a><br>  branch: master<br>把上面代码添加到config.xml最下面<br>4.hexo new post “article title”新建文章，然后 hexo g &amp;&amp; hexo s &amp;&amp;hexo d（或者清除缓存，每次修改配置文件后都要执行该命令<br>  hexo clean</p>
+<p>  // 生成静态页面文件，每次clean后也要重新生成<br>  hexo g</p>
+<p>  // 向仓库推送文件<br>  hexo d）<br>合并：hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/12/16/hexo%E6%93%8D%E4%BD%9C/" data-id="cl1psg1ai0005u0mueino19wn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-jwt" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/12/16/jwt/" class="article-date">
+  <time datetime="2021-12-16T08:15:18.000Z" itemprop="datePublished">2021-12-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/16/jwt/">jwt</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><pre><code>let Koa = require(&#39;koa&#39;);
+let Router = require(&#39;koa-router&#39;);
+let bodyparser = require(&#39;koa-bodyparser&#39;);
+let jwt = require(&#39;jwt-simple&#39;);
+let router = new Router()
+let app = new Koa();
+app.use(bodyparser());
+// 可以自己自定义
+let secret = &#39;zhenglei&#39;;
+// 验证是否登陆
+router.post(&#39;/login&#39;,async(ctx)=&gt;&#123; 
+    let &#123;username,password&#125; = ctx.request.body;
+    if(username === &#39;admin&#39; &amp;&amp; password === &#39;admin&#39;)&#123;
+      // 通常会查数据库，这里简单的演示
+      let token =  jwt.encode(username, secret);
+      ctx.body = &#123;
+            code:200,
+            username,
+            token,
+      &#125;
+    &#125;
+&#125;);
+// 验证是否有权限
+router.get(&#39;/validate&#39;,async(ctx)=&gt;&#123; 
+    let Authorization = ctx.get(&#39;authorization&#39;)
+    let [,token] = Authorization.split(&#39; &#39;);
+    if(token)&#123;
+        try&#123;
+            let r = jwt.decode(token,secret);
+            ctx.body = &#123;
+                code:200,
+                username:r,
+                token
+            &#125;
+        &#125;catch(e)&#123;
+            ctx.body = &#123;
+                code:401,
+                data:&#39;没有登陆&#39;
+            &#125;
+        &#125;
+    &#125;else&#123;
+        ctx.body = &#123;
+            code:401,
+            data:&#39;没有登陆&#39;
+        &#125;
+    &#125;
+  
+&#125;);
+app.use(router.routes());
+app.listen(4000);
+</code></pre>
+<p>作者：腾讯IMWeb团队<br>链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6873700061000237069">https://juejin.cn/post/6873700061000237069</a><br>来源：稀土掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/12/16/jwt/" data-id="cl1psg1al0007u0mu8aswa5lk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-好网站" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/11/26/%E5%A5%BD%E7%BD%91%E7%AB%99/" class="article-date">
@@ -93,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/26/%E5%A5%BD%E7%BD%91%E7%AB%99/" data-id="cl1ps2fpi000fxl9b5wu43j3w" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/26/%E5%A5%BD%E7%BD%91%E7%AB%99/" data-id="cl1psg1bq000gu0mu4gq75aj4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -145,7 +289,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/25/markdown%E5%AD%A6%E4%B9%A0/" data-id="cl1ps2fpd000axl9b9mu30ioy" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/25/markdown%E5%AD%A6%E4%B9%A0/" data-id="cl1psg1ar000au0mu3n7o0k3p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -185,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/25/git%E6%93%8D%E4%BD%9C/" data-id="cl1ps2fp70003xl9b2aay9pex" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/25/git%E6%93%8D%E4%BD%9C/" data-id="cl1psg1ad0003u0muelrx9ffo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -221,7 +365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/25/css/" data-id="cl1ps2fp40001xl9b0c8q8gnm" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/25/css/" data-id="cl1psg1a80001u0mu1wxofubd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -271,7 +415,7 @@ console.log(index)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/25/js%E6%95%B0%E7%BB%84/" data-id="cl1ps2fp90006xl9b72z6b6nc" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/25/js%E6%95%B0%E7%BB%84/" data-id="cl1psg1aj0006u0mu8g4x0li4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -308,56 +452,7 @@ console.log(index)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/25/less/" data-id="cl1ps2fpc0009xl9bfcjl313o" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/24/hello-world/" class="article-date">
-  <time datetime="2021-11-24T12:10:25.817Z" itemprop="datePublished">2021-11-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/24/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/24/hello-world/" data-id="cl1ps2fp80005xl9b4h55awkz" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/25/less/" data-id="cl1psg1ap0009u0mugps88jv6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -393,7 +488,7 @@ console.log(index)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/16/article-title/" data-id="cl1ps2foz0000xl9b3jozelmv" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/16/article-title/" data-id="cl1psg19z0000u0mu3maz1qz0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -439,6 +534,14 @@ console.log(index)
       <ul>
         
           <li>
+            <a href="/2022/04/08/test3/">test3</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/08/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
             <a href="/2022/04/08/test2/">test2</a>
           </li>
         
@@ -448,14 +551,6 @@ console.log(index)
         
           <li>
             <a href="/2022/03/29/vscodeConfig/">vscodeConfig</a>
-          </li>
-        
-          <li>
-            <a href="/2021/12/25/docker/">docker</a>
-          </li>
-        
-          <li>
-            <a href="/2021/12/23/%E6%AD%A3%E5%88%99%E5%B8%B8%E7%94%A8/">正则常用</a>
           </li>
         
       </ul>
