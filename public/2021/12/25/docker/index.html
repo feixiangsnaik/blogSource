@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>docker | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="常规操作mac 安装：   brew install –cask dockerhttps:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;40523307&#x2F;brew-install-docker-does-not-include-docker-enginedocker版本查看   docker -v 安装centos和宝塔1.docker pull centos2.docker run">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker">
+<meta property="og:url" content="http://example.com/2021/12/25/docker/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="常规操作mac 安装：   brew install –cask dockerhttps:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;40523307&#x2F;brew-install-docker-does-not-include-docker-enginedocker版本查看   docker -v 安装centos和宝塔1.docker pull centos2.docker run">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-25T03:39:29.000Z">
+<meta property="article:modified_time" content="2021-12-25T03:41:14.575Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-docker" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/12/25/docker/" class="article-date">
+  <time datetime="2021-12-25T03:39:29.000Z" itemprop="datePublished">2021-12-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      docker
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="常规操作"><a href="#常规操作" class="headerlink" title="常规操作"></a>常规操作</h2><p>mac 安装：   brew install –cask docker<br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/40523307/brew-install-docker-does-not-include-docker-engine">https://stackoverflow.com/questions/40523307/brew-install-docker-does-not-include-docker-engine</a><br>docker版本查看   docker -v</p>
+<h2 id="安装centos和宝塔"><a href="#安装centos和宝塔" class="headerlink" title="安装centos和宝塔"></a>安装centos和宝塔</h2><p>1.docker pull centos<br>2.docker run -i -t -d –name baota -p 20:20 -p 21:21 -p 80:80 -p 443:443 -p 888:888 -p 8888:8888 –privileged=true -v /home/www:/www centos     如果目录不能访问就换个目录比如（docker run -i -t -d –name baota -p 20:20 -p 21:21 -p 80:80 -p 443:443 -p 888:888 -p 8888:8888 –privileged=true -v /Users/zhangshuai/Desktop/installedsoftware/www:/www centos:7 /usr/sbin/init）<br>3.docker exec -it baota /bin/bash</p>
+<h2 id="宝塔安装"><a href="#宝塔安装" class="headerlink" title="宝塔安装"></a>宝塔安装</h2><p>4.yum install -y wget &amp;&amp; wget -O install.sh <a target="_blank" rel="noopener" href="http://download.bt.cn/install/install.sh">http://download.bt.cn/install/install.sh</a> &amp;&amp; sh install.sh<br>docker-&gt;preferences-&gt;resource-&gt;file sharing</p>
+<h2 id="删除所有已退出的容器"><a href="#删除所有已退出的容器" class="headerlink" title="删除所有已退出的容器"></a>删除所有已退出的容器</h2><p>docker rm $(docker ps -q -f status=exited)</p>
+<p>删除所有已停止的容器<br>docker rm $(docker ps -a -q)</p>
+<h2 id="删除所有正在运行和已停止的容器"><a href="#删除所有正在运行和已停止的容器" class="headerlink" title="删除所有正在运行和已停止的容器"></a>删除所有正在运行和已停止的容器</h2><pre><code>docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+</code></pre>
+<h2 id="删除所有容器，没有任何标准"><a href="#删除所有容器，没有任何标准" class="headerlink" title="删除所有容器，没有任何标准"></a>删除所有容器，没有任何标准</h2><p>docker container rm $(docker container ps -aq)</p>
+<p>但是，在1.13及更高版本中，对于完整的系统和清理，我们可以直接使用以下命令，<br>docker system prune</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/12/25/docker/" data-id="cl1ps2fp60002xl9b38w3azle" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/29/vscodeConfig/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          vscodeConfig
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/12/23/%E6%AD%A3%E5%88%99%E5%B8%B8%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">正则常用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/08/test2/">test2</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/31/learn/">learn</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/29/vscodeConfig/">vscodeConfig</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/25/docker/">docker</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/23/%E6%AD%A3%E5%88%99%E5%B8%B8%E7%94%A8/">正则常用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
