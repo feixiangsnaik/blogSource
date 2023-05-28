@@ -64,6 +64,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-正则常用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/12/23/%E6%AD%A3%E5%88%99%E5%B8%B8%E7%94%A8/" class="article-date">
+  <time datetime="2021-12-23T07:48:29.000Z" itemprop="datePublished">2021-12-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/23/%E6%AD%A3%E5%88%99%E5%B8%B8%E7%94%A8/">正则常用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="字母数字组合"><a href="#字母数字组合" class="headerlink" title="字母数字组合"></a>字母数字组合</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]&#123;8,16&#125;$</span><br></pre></td></tr></table></figure>
+<p>分开来注释一下：<br>^ 匹配一行的开头位置<br>(?![0-9]+$) 预测该位置后面不全是数字<br>(?![a-zA-Z]+$) 预测该位置后面不全是字母<br>[0-9A-Za-z] {8,16} 由8-16位数字或这字母组成<br>$ 匹配行结尾位置</p>
+<p>注：(?!xxxx) 是正则表达式的负向零宽断言一种形式，标识预该位置后不是xxxx字符。</p>
+<h2 id="不允许输入中文"><a href="#不允许输入中文" class="headerlink" title="不允许输入中文"></a>不允许输入中文</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const keyUp = (e, type) =&gt; &#123;</span><br><span class="line">  // eslint-disable-next-line no-param-reassign</span><br><span class="line">  e.target.value = e.target.value.replace(/[\u4E00-\u9FA5]|[\uFE30-\uFFA0]/g, &#x27;&#x27;)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/12/23/%E6%AD%A3%E5%88%99%E5%B8%B8%E7%94%A8/" data-id="cli78jo5c000k1s9i7sw7e5no" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-防抖节流" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/12/22/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" class="article-date">
@@ -91,7 +130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/12/22/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" data-id="cli721dc5000kqk9i3pla043j" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/12/22/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" data-id="cli78jo5d000m1s9ibbgid22o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -253,7 +292,7 @@ static race (promiseArr) &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/12/22/promise%E5%AE%9E%E7%8E%B0/" data-id="cli721dc2000cqk9i1wgdhujw" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/12/22/promise%E5%AE%9E%E7%8E%B0/" data-id="cli78jo59000c1s9iasha7lha" class="article-share-link">Share</a>
       
       
     </footer>
@@ -381,7 +420,7 @@ static race (promiseArr) &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/12/20/watermark/" data-id="cli721dc5000iqk9iayfa9j57" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/12/20/watermark/" data-id="cli78jo5b000i1s9i18vo75sc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -430,14 +469,14 @@ static race (promiseArr) &#123;
  //第五条 启动本地服务
  hexo s
 </code></pre>
-<p>合并：1.     npm install -g hexo &amp;&amp; hexo init &amp;&amp; npm install &amp;&amp;npm i hexo-deployer-git &amp;&amp; hexo g &amp;&amp; hexo s<br>git 步骤：2.git config –global user.name ‘feixiangsnaik’ &amp;&amp;git config –global user.email ‘<a href="mailto:&#102;&#x65;&#x69;&#x78;&#x69;&#97;&#110;&#103;&#115;&#110;&#97;&#x69;&#108;&#x40;&#103;&#109;&#97;&#105;&#108;&#46;&#x63;&#111;&#x6d;">&#102;&#x65;&#x69;&#x78;&#x69;&#97;&#110;&#103;&#115;&#110;&#97;&#x69;&#108;&#x40;&#103;&#109;&#97;&#105;&#108;&#46;&#x63;&#111;&#x6d;</a>‘&amp;&amp;ssh-keygen -t rsa -C ‘<a href="mailto:&#102;&#x65;&#105;&#120;&#105;&#97;&#110;&#103;&#x73;&#110;&#97;&#105;&#108;&#64;&#103;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;">&#102;&#x65;&#105;&#120;&#105;&#97;&#110;&#103;&#x73;&#110;&#97;&#105;&#108;&#64;&#103;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;</a>‘    然后回车到底，把pub的内容拷贝到github ssh里面。<br>3.deploy:<br>  type: git<br>  repository: <a target="_blank" rel="noopener" href="https://github.com/feixiangsnaik/feixiangsnaik.github.io">https://github.com/feixiangsnaik/feixiangsnaik.github.io</a><br>  branch: master<br>把上面代码添加到config.xml最下面<br>4.hexo new post “article title”新建文章，然后 hexo g &amp;&amp; hexo s &amp;&amp;hexo d（或者清除缓存，每次修改配置文件后都要执行该命令<br>  hexo clean</p>
+<p>合并：1.     npm install -g hexo &amp;&amp; hexo init &amp;&amp; npm install &amp;&amp;npm i hexo-deployer-git &amp;&amp; hexo g &amp;&amp; hexo s<br>git 步骤：2.git config –global user.name ‘feixiangsnaik’ &amp;&amp;git config –global user.email ‘<a href="mailto:&#102;&#x65;&#x69;&#120;&#x69;&#97;&#x6e;&#103;&#x73;&#110;&#x61;&#x69;&#108;&#64;&#103;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#102;&#x65;&#x69;&#120;&#x69;&#97;&#x6e;&#103;&#x73;&#110;&#x61;&#x69;&#108;&#64;&#103;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a>‘&amp;&amp;ssh-keygen -t rsa -C ‘<a href="mailto:&#x66;&#101;&#105;&#x78;&#x69;&#x61;&#110;&#x67;&#x73;&#x6e;&#x61;&#105;&#x6c;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#111;&#109;">&#x66;&#101;&#105;&#x78;&#x69;&#x61;&#110;&#x67;&#x73;&#x6e;&#x61;&#105;&#x6c;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#111;&#109;</a>‘    然后回车到底，把pub的内容拷贝到github ssh里面。<br>3.deploy:<br>  type: git<br>  repository: <a target="_blank" rel="noopener" href="https://github.com/feixiangsnaik/feixiangsnaik.github.io">https://github.com/feixiangsnaik/feixiangsnaik.github.io</a><br>  branch: master<br>把上面代码添加到config.xml最下面<br>4.hexo new post “article title”新建文章，然后 hexo g &amp;&amp; hexo s &amp;&amp;hexo d（或者清除缓存，每次修改配置文件后都要执行该命令<br>  hexo clean</p>
 <p>  // 生成静态页面文件，每次clean后也要重新生成<br>  hexo g</p>
 <p>  // 向仓库推送文件<br>  hexo d）<br>合并：hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/12/16/hexo%E6%93%8D%E4%BD%9C/" data-id="cli721dbz0007qk9i5gutd44m" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/12/16/hexo%E6%93%8D%E4%BD%9C/" data-id="cli78jo5400031s9i0vuk1dot" class="article-share-link">Share</a>
       
       
     </footer>
@@ -525,7 +564,7 @@ app.listen(4000);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/12/16/jwt/" data-id="cli721dc1000aqk9i9gfyc2hd" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/12/16/jwt/" data-id="cli78jo5500061s9i26ei587o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -564,7 +603,7 @@ app.listen(4000);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/26/%E5%A5%BD%E7%BD%91%E7%AB%99/" data-id="cli721dc5000jqk9i75ld1xte" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/26/%E5%A5%BD%E7%BD%91%E7%AB%99/" data-id="cli78jo5b000j1s9i32el6h7n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -616,7 +655,7 @@ app.listen(4000);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/25/markdown%E5%AD%A6%E4%B9%A0/" data-id="cli721dc2000bqk9igidmgzz8" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/25/markdown%E5%AD%A6%E4%B9%A0/" data-id="cli78jo59000b1s9ifscq83md" class="article-share-link">Share</a>
       
       
     </footer>
@@ -656,7 +695,7 @@ app.listen(4000);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/25/git%E6%93%8D%E4%BD%9C/" data-id="cli721dbw0003qk9i8wkiblk3" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/25/git%E6%93%8D%E4%BD%9C/" data-id="cli78jo5600081s9i0uj4hfr0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -692,57 +731,7 @@ app.listen(4000);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/25/css/" data-id="cli721dbu0001qk9ihpq478dj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-js数组" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/25/js%E6%95%B0%E7%BB%84/" class="article-date">
-  <time datetime="2021-11-25T09:22:55.000Z" itemprop="datePublished">2021-11-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/25/js%E6%95%B0%E7%BB%84/">js数组</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h2><h3 id="删除某个数组元素-原数组改变，返回被删除或者被替换的哪个。"><a href="#删除某个数组元素-原数组改变，返回被删除或者被替换的哪个。" class="headerlink" title="删除某个数组元素,原数组改变，返回被删除或者被替换的哪个。"></a>删除某个数组元素,原数组改变，返回被删除或者被替换的哪个。</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let a = [1,2,3,4,5]</span><br><span class="line">let b = [1,2,3,4,5]</span><br><span class="line">//如果想删除3，就找到第三项，删除1个（下标，个数），如果想替换，那么第三个参数是添加到删除的位置处</span><br><span class="line">let aa = a.splice(2,1) //删除3</span><br><span class="line">let bb = b.splice(2,1,&#x27;hello&#x27;) //把3换成hello</span><br><span class="line">console.log(a,b,aa,bb)</span><br></pre></td></tr></table></figure>
-<h2 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h2><h3 id="原数组不变，返回数组为截取的"><a href="#原数组不变，返回数组为截取的" class="headerlink" title="原数组不变，返回数组为截取的"></a>原数组不变，返回数组为截取的</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let a = [1,2,3,4,5]</span><br><span class="line">let b = a.slice(1,-1)</span><br><span class="line">console.log(a,b,&#x27;ab&#x27;)</span><br><span class="line">//a=[1,2,3,4,5] b=[2,3,4]</span><br></pre></td></tr></table></figure>
-<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><h3 id="返回一个新数组，内容只包括返回的值。"><a href="#返回一个新数组，内容只包括返回的值。" class="headerlink" title="返回一个新数组，内容只包括返回的值。"></a>返回一个新数组，内容只包括返回的值。</h3><pre><code>var nn = [ &#123; a: &#39;ss&#39;,b:&#39;b1&#39; &#125;,&#123; a: &#39;aa&#39;,b:&#39;b2&#39; &#125;,&#123; a : &#39;11&#39;,b:&#39;b3&#39;&#125; ] 
-var index = nn.map(item =&gt;&#123; return &#123;d:item.a,b:item.b&#125;&#125;)
-console.log(index) [&#123;d:&#39;ss&#39;,b:&#39;b1&#39;&#125;,...]
-//返回指定某个元素的下标
-var nn = [ &#123; a: &#39;ss&#39; &#125;,&#123; a: &#39;aa&#39; &#125;,&#123; a : &#39;11&#39;&#125;,&#123; a: &#39;33&#39; &#125;,&#123; a: &#39;88&#39; &#125; ] 
-var index = nn.map(item =&gt; item.a).indexOf(33)
-console.log(index)
-</code></pre>
-<h2 id="findIndexOf"><a href="#findIndexOf" class="headerlink" title="findIndexOf"></a>findIndexOf</h2><ol>
-<li>查找对象数组，然后返回指定内容的对象所在的索引。<h2 id="every"><a href="#every" class="headerlink" title="every"></a>every</h2></li>
-<li>如果每个都满足，那么就返回true</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/25/js%E6%95%B0%E7%BB%84/" data-id="cli721dby0006qk9i40tp8w1j" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/25/css/" data-id="cli78jo5300021s9iavn63qdu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -788,6 +777,10 @@ console.log(index)
       <ul>
         
           <li>
+            <a href="/2023/05/28/%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%BD%E4%BB%A4/">系统服务器命令</a>
+          </li>
+        
+          <li>
             <a href="/2023/05/28/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">git常用命令</a>
           </li>
         
@@ -801,10 +794,6 @@ console.log(index)
         
           <li>
             <a href="/2023/05/28/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/08/test3/">test3</a>
           </li>
         
       </ul>
