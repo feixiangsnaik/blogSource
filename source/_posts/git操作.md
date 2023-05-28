@@ -46,3 +46,4 @@ git reset [commit id] --hard   有时候要删除一个index.lock文件。
 git fetch --all
 git reset --hard origin/master
 git pull //可以省略
+
