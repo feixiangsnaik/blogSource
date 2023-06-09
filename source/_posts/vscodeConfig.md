@@ -90,3 +90,10 @@ tags:
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 }
+
+
+
+vscode
+1.ssh-keygen -t rsa -b 4096 -f
+2.将本地的～/.ssh/id_rsa.pub内容拷贝到服务器下面的~/.ssh/authorized_keys(如果没有.ssh就mkdir创建一个,再创建一个authorized_keys文件）
+如果遇到问题，报远程连接错误，那么去known_hosts删除这个ip的一行，然后重新执行上一步

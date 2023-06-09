@@ -13,3 +13,12 @@ tags:
 
 1. 将改名后的本地分支推送到远程，并将本地分支与之关联
 `git push --set-upstream origin newBranchName `
+
+## 2. 代码回退
+
+1. 查看commit信息列表
+    ` git log`
+2. 截取部分commit的id，用来回退
+  `git reset --hard 992a5088`
+3. 强制提交
+`git push --force`
